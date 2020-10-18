@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import HomePage from "./components/HomePage";
+import LoginPage from "./components/LoginPage";
+import { BrowserRouter, Route, Redirect } from "react-router-dom";
+import BookMarked from "./components/MovieBookMarked";
+import Filter from "./components/Filter";
 
 function App() {
+  const isAuth = window.localStorage.getItem("isAuth");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Route path="/" exact component={LoginPage}></Route>
+        <Route
+          path="/homepage"
+          render={() => (!isAuth ? <Redirect to="/" /> : <HomePage />)}
+        />
+        <Route
+          path="/bookmarks"
+          render={() => (!isAuth ? <Redirect to="/" /> : <BookMarked />)}
+        />
+        <Route
+          path="/upcomingmovies"
+          render={() => (!isAuth ? <Redirect to="/" /> : <Filter />)}
+        />
+      </BrowserRouter>
+      {/* <Filter/> */}
     </div>
   );
 }

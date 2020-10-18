@@ -1,0 +1,19 @@
+body {
+    font-family: "DM Sans", system-ui,  sans-serif;
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    direction: ltr;
+    text-align: left;
+    padding-top: 60px;
+    line-height: 1.47059;
+    font-weight: 400;
+    letter-spacing: -0.022em;
+    background-color: #fff;
+    color: #333;
+    font-style: normal;
+  }
+
+.cursor{
+  cursor: pointer;
+}
